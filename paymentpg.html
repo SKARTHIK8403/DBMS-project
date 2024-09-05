@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                padding: 0;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: linear-gradient(to bottom right, #ff6b6b, #3a1c71); /* Gradient background */
+            }
+
+            header {
+                text-align: center;
+                margin-bottom: 50px;
+            }
+
+            .logo {
+                max-width: 350px;
+                height: auto;
+            }
+
+            h1 {
+                color: #ffffff; /* White text color */
+                font-size: 32px;
+                margin: 0;
+            }
+
+            form {
+                background-color: #ffffff; /* White background */
+                padding: 40px;
+                margin:50px;
+                border-radius: 10px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Soft shadow */
+                width: 300px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-left: 150px;
+            }
+
+            input, select {
+                padding: 15px;
+                width: 100%;
+                box-sizing: border-box;
+                border: none;
+                border-radius: 8px;
+                margin: 10px 0;
+                background-color: #f0f0f0; /* Light gray background */
+                color: #333333; /* Dark text color */
+            }
+
+            button {
+                background-color: #2e186a; /* Dark purple */
+                color: #ffffff;
+                padding: 15px 30px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 18px;
+                margin-top: 20px;
+                transition: background-color 0.3s ease;
+            }
+
+            button:hover {
+                background-color: #48166e; /* Darker shade of purple on hover */
+            }
+
+            label {
+                margin-top: 15px;
+                color: #333333; /* Dark text color */
+            }
+
+            /* Add margin between form elements */
+            form > * {
+                margin-bottom: 15px;
+            }
+
+            /* Custom dropdown */
+            .select-wrapper {
+                position: relative;
+                display: inline-block;
+            }
+
+            .select-wrapper select {
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                width: 100%;
+                margin:10px;
+                padding: 20px;
+                border: 1px solid #aaa;
+                border-radius: 4px;
+                background-color: #fff;
+                cursor: pointer;
+                outline: none;
+            }
+
+            /* Arrow icon */
+            .select-wrapper::after {
+                content: '\25BC';
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translateY(-50%);
+                pointer-events: none;
+            }
+
+            /* Hover effect */
+            .select-wrapper:hover select {
+                border-color: #555;
+            }
+
+        </style>   
+        <script>
+            function showSuccessMessage() {
+            alert("Payment successful!");
+        }
+        </script>
+    </head>
+    <body>
+        <header>
+            <img class="logo" src="dbms logo.jpeg" alt="TOURGUIDE">
+            <h1 style='color:black;'>TOURGUIDE</h1>      
+        </header>        
+
+
+        <form action='HomeI.html'>
+            <div class='select-wrapper'>
+                <select id="paymentOption" name="paymentOption" required onchange="togglePaymentFields()">
+                    <option value="">Select Payment Option</option>
+                    <option value="creditCard">Credit Card</option>
+                    <option value="debitCard">Debit Card</option>         
+                </select>
+            </div>
+            <div id="paymentFields"> <!-- Container for payment fields -->
+                <br>
+                <br><label for="cardNumber">Card Number:</label>
+                <input type="text"  name="cardNumber" required><br>
+
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="text" name="expiryDate" required><br>
+
+                <label for="cvv">CVV:</label>
+                <input type="text"  name="cvv" required><br>
+            </div>
+            <a href='home.html'><button type='submit' name='pay' onclick="showSuccessMessage()">Pay Now</button></a>
+        </form>
+    </body>
+</html>

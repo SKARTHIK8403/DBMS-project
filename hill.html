@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Hill Stations</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;                       
+                padding: 0;
+                height: 100%;
+                position: relative;
+            }
+
+
+            header {
+                background-color: #f2f2f2;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .logo {
+                max-width: 300px;
+                height: auto;
+                vertical-align: middle;
+            }
+
+            h1 {
+                color: black;
+                margin: 0;
+            }
+
+            nav {
+                background-color: #333;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            nav a {
+                color: white;
+                text-decoration: none;
+                padding: 10px 20px;
+            }
+
+            nav a:hover {
+                background-color: #555;
+            }
+
+            #slideshow-container {
+                position: relative;
+                max-width: 100%;
+                overflow: hidden;
+                margin-bottom: 20px;
+            }
+
+            .mySlides {
+                display: none;
+                width: 100%;
+                height: 200px;
+            }
+
+            .slide-img {
+                width: 100%;
+                height: 400px;
+            }
+
+            .prev, .next {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                width: auto;
+                padding: 16px;
+                margin-top: -22px;
+                color: white;
+                font-weight: bold;
+                font-size: 18px;
+                transition: 0.6s ease;
+                border-radius: 0 3px 3px 0;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+            .next {
+                right: 0;
+                border-radius: 3px 0 0 3px;
+            }
+
+            .prev:hover, .next:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+
+            .dot {
+                height: 15px;
+                width: 15px;
+                margin: 0 2px;
+                background-color: #bbb;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+            }
+
+            .active {
+                background-color: #717171;
+            }     
+            .footer {
+                background-color: #333;
+                color: #fff;
+                padding: 20px;
+                text-align: center;            
+                bottom: 0;
+                width: 100%;
+            }
+
+            .footer p {
+                margin: 0;
+            }  
+            .footer a {
+                text-decoration: none;
+                color:white;
+                font-size: 15px;
+            }         
+            /* Hill container */
+            .hillcontainer {
+                width: 90%;
+                margin: 20px auto;
+                padding: 10px;
+                background-color:#f0f0f0;
+                border-radius: 10px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Heading */
+            .hillcontainer h1 {
+                font-size: 36px;
+                color: #333;
+                margin: 0 0 20px;
+                text-align: center;
+            }
+
+            /* Description paragraph */
+            .hillcontainer p {
+                font-size: 18px;
+                color: #666;
+                text-align: center;
+                margin: 0 0 20px;
+            }
+
+            /* List of hill stations */
+            .hillcontainer ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                text-align: center;
+            }
+
+
+            .hillcontainer h1 {
+                font-size: 36px;
+                color: #333;
+                margin: 0 0 20px;
+                text-align: center;
+            }
+
+            .hillcontainer p {
+                font-size: 18px;
+                color: #666;
+                text-align: center;
+                margin: 0 0 20px;
+            }
+
+            .hillcontainer ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                text-align: center;
+            }
+
+            .hillcontainer li {
+                font-size: 24px;
+                color: #333;
+                margin: 10px 0;
+                background-color: #ffc107;
+                border-radius: 10px;
+                padding: 10px 20px;
+                transition: background-color 0.3s ease;
+            }
+
+            .hillcontainer li:hover {
+                background-color: #ff9800;
+                cursor: pointer;
+            }
+
+            /* Anchor tag */
+            .hillcontainer li a {
+                color: #333;
+                text-decoration: none;
+            }
+
+            /* Anchor tag hover effect */
+            .hillcontainer li a:hover {
+                color: #ff9800;
+                text-decoration: underline; /* Add underline on hover if desired */
+            }
+            .hillcontainer p{
+                color: black;
+            }
+            .btn {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #ff9800;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+
+            .btn:hover {
+                background-color: #f57c00;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <img class="logo" src="dbms logo.jpeg" alt="TOURGUIDE">
+            <h1 style='color:black;'>TOURGUIDE</h1>
+
+        </header>
+        <nav> 
+            <a href="HomeI.html">Home</a>            
+            <a href="#footer">Contact Us </a>
+
+        </nav>
+        <div id="slideshow-container">
+            <div class="mySlides">
+                <img class="slide-img" src="ss1.jpg" alt="Slide 1">
+            </div>
+
+            <div class="mySlides">
+                <img class="slide-img" src="slideshow2.jpg" alt="Slide 2">
+            </div>
+            <!-- Add more slides as needed -->
+            <div class="mySlides">
+                <img class="slide-img" src="ss3.jpg" alt="Slide 2">
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+        <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+
+                if (n > slides.length) {
+                    slideIndex = 1;
+                }
+
+                if (n < 1) {
+                    slideIndex = slides.length;
+                }
+
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+
+                slides[slideIndex - 1].style.display = "block";
+            }
+
+            setInterval(function () {
+                plusSlides(1);
+            }, 2000);
+        </script>
+        <div class="hillcontainer">
+            <p style='color:black;'>India is blessed with numerous hill stations, offering respite from the scorching summer heat and providing breathtaking views of majestic mountains, lush greenery, and serene landscapes.</p>
+            <h1>Best Hill Stations To Visit In India Are</h1>
+            <ul>
+                <li><a href="#coorg">Coorg</a></li>
+                <li><a href="#munnar">Munnar</a></li>
+                <li><a href="#mountabu">Mount Abu</a></li>
+                <li><a href="#nainital">Nainital</a></li>
+                <li><a href="#shimla">Shimla</a></li>
+            </ul>
+        </div>
+        <!-- Section for each hill station -->
+        <section id="coorg"><div class="hillcontainer">
+
+                <ul>
+                    <li>
+                        <h1>Coorg</h1>
+                    </li>
+                    <li>
+                        <h2>Abbey Falls</h2>
+                        <p>A scenic waterfall located amidst coffee plantations. It is a popular tourist attraction known for its natural beauty and tranquil surroundings.</p>
+                        <p>Timings: 9:00 AM to 5:00 PM</p>
+                        <p>Entry Fee: Approximately INR 15 to INR 30 per person</p>
+                        <img src='abbey falls.jpg'>              
+                    </li>
+                    <li>
+                        <h2>Madikeri Fort</h2>
+                        <p>Also known as Mercara Fort, it is a historical fort built by the erstwhile rulers of Coorg. The fort offers panoramic views of the surrounding hills and houses a museum showcasing artifacts and relics of the region's history.</p>
+                        <p>Timings: 10:00 AM to 5:30 PM (Closed on Mondays)</p>
+                        <p>Entry Fee: Approximately INR 10 to INR 25 per person</p>
+                        <img src='Madikeri Fort.jpg'>
+                    </li>
+                    <li>
+                        <h2>Raja's Seat</h2>
+                        <p>A beautiful garden and viewpoint located in Madikeri, offering breathtaking views of the sunset. It is a perfect spot for enjoying the scenic beauty of Coorg and relaxing amidst nature.</p>
+                        <p>Timings: 6:00 AM to 8:00 PM</p>
+                        <p>Entry Fee: Approximately INR 5 to INR 10 per person</p>
+                        <img src="Raja's Seat.jpg">
+                    </li>
+                    <li>
+                        <h2>Namdroling Monastery (Golden Temple)</h2>
+                        <p>One of the largest Tibetan Buddhist monasteries in India, known for its magnificent architecture, golden statues, and serene ambiance. Visitors can witness Buddhist rituals and teachings at the monastery.</p>
+                        <p>Timings: 9:00 AM to 6:00 PM</p>
+                        <p>No Entry Fee, Donations welcome</p>
+                        <img src='Namdroling Monastery (Golden Temple).jpg'>
+                    </li>
+                    <li>
+                        <h2>Talakaveri</h2>
+                        <p>The origin of the River Kaveri, located atop the Brahmagiri Hill. It is a sacred site for Hindus and offers panoramic views of the surrounding hills and valleys.</p>
+                        <p>Timings: 6:00 AM to 6:00 PM</p>
+                        <p>No Entry Fee</p>
+                        <img src='Talakaveri.jpg'>
+                    </li>
+                    <li>
+                        <h2>Dubare Elephant Camp</h2>
+                        <p>A popular destination for wildlife enthusiasts and nature lovers. Visitors can participate in elephant interactions, feeding, and bathing activities while learning about elephant conservation efforts.</p>
+                        <p>Timings: 8:30 AM to 11:00 AM, 4:30 PM to 5:30 PM</p>
+                        <p>Elephant Interaction Fee: Approximately INR 100 to INR 500 per person (varies based on activity)</p>
+                        <img src='Dubare Elephant Camp.jpg'>
+                    </li>
+                    <li>
+                        <h2>Coffee Plantations</h2>
+                        <p>Coorg is renowned for its coffee plantations, and a visit to these plantations offers a unique experience to learn about coffee cultivation, processing, and tasting. Many plantations also offer homestay accommodations for tourists.</p>
+                        <p>Timings: Visits usually arranged by prior appointment</p>
+                        <p>Guided Tour Fee: Approximately INR 200 to INR 500 per person (includes plantation tour and coffee tasting)</p>
+                        <img src='Coffee Plantations.jpg'>
+                    </li>
+                    <li>
+                        <h2>Trekking</h2>
+                        <p>Coorg offers several trekking trails amidst its scenic landscapes and hills. Popular trekking destinations include Tadiandamol Peak, Brahmagiri Peak, and Pushpagiri Peak.</p>
+                        <p>Timings: Varies based on trek route and difficulty level</p>
+                        <p>Guide Fee (if required): Approximately INR 500 to INR 2000 per trek (depends on duration and route)</p>
+                        <img src='Trekking.jpg'>
+                    </li>
+                    <li>
+                        <h2>Raja's Tomb</h2>
+                        <p>The final resting place of Kodava kings and queens, located in Madikeri. The tombs are built in Indo-Sarcenic style architecture and are surrounded by beautiful gardens.</p>
+                        <p>Timings: 9:00 AM to 5:30 PM</p>
+                        <p>Entry Fee: Approximately INR 10 to INR 25 per person</p>
+                        <img src="Raja's Tomb.jpg">
+                    </li>                    
+                </ul>
+                <div>
+                    <form action='bookplacebe' method='post'>
+                        <input type='hidden' name='coorg' value="coorg">
+                        <a href="bookplacebe" class="btn">Book Now</a>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section id="munnar"><div class="hillcontainer">
+                <ul>
+                    <li>
+                        <h1>Munnar</h1>
+                    </li>
+                    <li>
+                        <h2>Eravikulam National Park</h2>
+                        <p>A protected area known for its endangered Nilgiri Tahr and rich biodiversity. Visitors can enjoy trekking and wildlife spotting amidst lush greenery.</p>
+                        <p>Timings: 7:00 AM to 4:00 PM (Closed during February and March)</p>
+                        <p>Entry Fee: Approximately INR 125 to INR 420 per person (varies for Indian and foreign nationals)</p>
+                        <img src='eravikulam_national_park.jpg'><!-- Image source: example.com -->
+                    </li>
+                    <li>
+                        <h2>Mattupetty Dam</h2>
+                        <p>A concrete gravity dam built near the Anamudi Peak, offering scenic views of the surrounding hills and valleys. Boating and picnicking are popular activities here.</p>
+                        <p>Timings: 9:30 AM to 5:30 PM</p>
+                        <p>Entry Fee: Approximately INR 10 to INR 25 per person</p>
+                        <img src='mattupetty_dam.jpg'><!-- Image source: example.com -->
+                    </li>
+                    <li>
+                        <h2>Top Station</h2>
+                        <p>Located at the highest point on the Munnar-Kodaikanal road, Top Station offers panoramic views of the Western Ghats and the valley of Theni district. It is a popular trekking destination and offers stunning sunrise views.</p>
+                        <p>Timings: 6:00 AM to 6:00 PM</p>
+                        <p>Entry Fee: Free</p>
+                        <img src='top_station.jpg'><!-- Image source: example.com -->
+                    </li>
+                    <li>
+                        <h2>Tea Gardens</h2>
+                        <p>Munnar is renowned for its sprawling tea plantations, which offer scenic vistas of manicured greenery against the backdrop of misty mountains. Visitors can take guided tours of tea factories and learn about the tea-making process.</p>
+                        <p>Timings: Varies</p>
+                        <p>Entry Fee: Free</p>
+                        <img src='tea_gardens.jpg'><!-- Image source: example.com -->
+                    </li>
+                    <li>
+                        <h2>Attukal Waterfalls</h2>
+                        <p>A mesmerizing waterfall located between Munnar and Pallivasal, surrounded by lush green hills and rocky cliffs. It is an ideal spot for nature lovers and photography enthusiasts.</p>
+                        <p>Timings: Open 24 hours</p>
+                        <p>Entry Fee: Free</p>
+                        <img src='attukal_waterfalls.jpg'><!-- Image source: example.com -->
+                    </li>
+                    <li>
+                        <h2>Tea Museum</h2>
+                        <p>The Tata Tea Museum showcases the history and evolution of tea plantations in Munnar. Visitors can explore exhibits on tea processing, machinery, and vintage photographs.</p>
+                        <p>Timings: 10:00 AM to 5:00 PM (Closed on Mondays)</p>
+                        <p>Entry Fee: Approximately INR 75 per person</p>
+                        <img src='tea_museum.jpg'><!-- Image source: example.com -->
+                    </li>
+                    <li>
+                        <h2>Chinnar Wildlife Sanctuary</h2>
+                        <p>A biodiversity hotspot located in the rain shadow region of the Western Ghats. It is home to diverse flora and fauna, including the endangered grizzled giant squirrel and the star tortoise.</p>
+                        <p>Timings: 6:00 AM to 6:00 PM</p>
+                        <p>Entry Fee: Approximately INR 10 to INR 100 per person (varies for Indian and foreign nationals)</p>
+                        <img src='chinnar_wildlife_sanctuary.jpg'><!-- Image source: example.com -->
+                    </li>
+                    <li>
+                        <h2>Marayoor Dolmens</h2>
+                        <p>Located in Marayoor village, these ancient dolmens are believed to date back to the Neolithic period. They are stone structures with historical and archaeological significance.</p>
+                        <p>Timings: Open 24 hours</p>
+                        <p>Entry Fee: Free</p>
+                        <img src='marayoor_dolmens.jpg'><!-- Image source: example.com -->
+                    </li>
+                </ul>
+                <div>
+                    <form action='bookplacebe' method='post'>
+                        <input type='hidden' name='munnar' value="munnar">
+                        <a href="bookplacebe" class="btn">Book Now</a>
+                    </form>
+                </div>
+
+            </div></section>
+        <section id="mountabu">Mount Abu details go here...</section>
+        <section id="nainital">Nainital details go here...</section>
+        <section id="shimla">Shimla details go here...</section>
+
+
+        <div class="footer" id="footer">
+            <p id="phone">Phone: +91 12345 67890</p>
+            <p id="email">Email: example@example.com</p>
+            <p>&copy; 2024 Your Tour Guide. All rights reserved.</p>
+        </div>
+    </body>
+</html>
